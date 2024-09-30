@@ -75,7 +75,7 @@ int main(const int argc, const char * argv[]) {
     if (MyFile.is_open()) {
       for(int i = 0; i < pixel_list.size(); i++) {
         Pixel p = pixel_list[i];
-        MyFile << p.x<<","<<p.y<<","<<p.r<<","<<p.g<<","<<p.b;
+        MyFile << p.x<<","<<p.y<<","<<p.r<<","<<p.g<<","<<p.b<<"\n";
       }
     }
 
