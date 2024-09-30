@@ -40,6 +40,18 @@ void average_colors(std::vector<Pixel> &pixel_list){
   std::cout << "Average value r: " << r << " g: " << g << " b: " << b << std::endl;
 };
 
+void flip_vertically(std::vector<Pixel> &pixel_list) {
+  int max = 256;
+  for(int i = 0; i < pixel_list.size(); i++) {
+    if (pixel_list[i].y > max/2) {
+      pixel_list[i].y = max/2 - pixel_list[i].y-(max/2);
+    }
+    else if(pixel_list[i].y < max/2)
+      pixel_list[i].y = max/2 + (max/2) - pixel_list[i].y;
+  };
+}
+
+
 int main(const int argc, const char * argv[]) {
   std::cout << argv[0] << std::endl;
 
@@ -56,6 +68,16 @@ int main(const int argc, const char * argv[]) {
     }
     file.close();
     average_colors(pixel_list);
+    flip_vertically(pixel_list);
+
+  //write in the file
+    std::ofstream MyFile("flipped.dat");
+    if (MyFile.is_open()) {
+      for(int i = 0; i < pixel_list.size(); i++) {
+        Pixel p = pixel_list[i];
+        MyFile << p.x<<","<<p.y<<","<<p.r<<","<<p.g<<","<<p.b;
+      }
+    }
 
   } else {
     std::cout << "Unable to open file" << std::endl;
