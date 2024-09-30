@@ -8,17 +8,17 @@ Pixel make_pixel(std::string& line){
   Pixel pixel;
 
   pixel.x = stoi(line.substr(0, line.find(',')));
-  line = line.substr(line.find(','), line.length()-line.find(',')-1);
+  line = line.substr(line.find(',')+1, line.length()-line.find(','));
   std::cout << "Pixel x:" << pixel.x << "Line:" << line << std::endl;
 
   pixel.y = stoi(line.substr(0, line.find(',')));
-  line = line.substr(line.find(','), line.length()-line.find(',')-1);
+  line = line.substr(line.find(',')+1, line.length()-line.find(','));
 
   pixel.r = stof(line.substr(0, line.find(',')));
-  line = line.substr(line.find(','), line.length()-line.find(',')-1);
+  line = line.substr(line.find(',')+1, line.length()-line.find(','));
 
   pixel.g = stof(line.substr(0, line.find(',')));
-  line = line.substr(line.find(','), line.length()-line.find(',')-1);
+  line = line.substr(line.find(',')+1, line.length()-line.find(','));
 
   pixel.b = stof(line.substr(0, line.find(',')));
 
