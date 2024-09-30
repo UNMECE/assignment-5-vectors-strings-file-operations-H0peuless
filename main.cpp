@@ -6,9 +6,10 @@
 
 Pixel make_pixel(std::string& line){
   Pixel pixel;
+
   pixel.x = stoi(line.substr(0, line.find(',')));
   line = line.substr(1, line.find(','));
-  std::cout << pixel.x << line << std::endl;
+  std::cout << "Pixel x:" << pixel.x << "Line:" << line << std::endl;
 
   pixel.y = stoi(line.substr(0, line.find(',')));
   std::cout << pixel.y << std::endl;
