@@ -4,13 +4,14 @@
 #include <string>
 #include <fstream>
 
-Pixel make_pixel(std::string line){
+Pixel make_pixel(const std::string& line){
   Pixel pixel;
-  pixel.x = stoi(line.substr(0, line.find(",")));
-  pixel.y = stoi(line.substr(1, line.find(",")));
-  pixel.r = stof(line.substr(2, line.find(",")));
-  pixel.g = stof(line.substr(3, line.find(",")));;
-  pixel.b = stof(line.substr(4, line.find(",")));;
+  std::cout << line << std::endl;
+  pixel.x = stoi(line.substr(0, line.find(',')));
+  pixel.y = stoi(line.substr(1, line.find(',')));
+  pixel.r = stof(line.substr(2, line.find(',')));
+  pixel.g = stof(line.substr(3, line.find(',')));
+  pixel.b = stof(line.substr(4, line.find(',')));
 
   return pixel;
 }
@@ -31,32 +32,25 @@ void average_colors(std::vector<Pixel> &pixel_list){
   std::cout << "Average value r: " << r << " g: " << g << " b: " << b << std::endl;
 };
 
-
-
 int main(const int argc, const char * argv[]) {
-  std::vector<Pixel> pixel_list;
-  std::ifstream file;
-  std::string line;
+  std::cout << argv[0] << std::endl;
 
-  if (argc > 1 && std::stoi(argv[1])){ //choose the file source
-    std::ifstream file(argv[1]);
-  }else{
-    std::ifstream file("pixels.dat");
-  }
+  std::vector<Pixel> pixel_list; //Pixel list struct
+  std::string filename = (argc > 1) ? argv[1] : "pixels.dat";
+  std::ifstream file(filename); //File to read
+  std::string line; //Line in the file
+
+
   if (file.is_open()) {
     while (getline(file, line)) {
       std::cout << line << std::endl; //Read line by line
       pixel_list.push_back(make_pixel(line)); //Parse the line to a pixel Object
     }
     file.close();
-
     average_colors(pixel_list);
-
 
   } else {
     std::cout << "Unable to open file" << std::endl;
   }
-
-
   return 0;
 }
