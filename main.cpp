@@ -4,14 +4,22 @@
 #include <string>
 #include <fstream>
 
-Pixel make_pixel(const std::string& line){
+Pixel make_pixel(std::string& line){
   Pixel pixel;
-  std::cout << line << std::endl;
   pixel.x = stoi(line.substr(0, line.find(',')));
-  pixel.y = stoi(line.substr(1, line.find(',')));
-  pixel.r = stof(line.substr(2, line.find(',')));
-  pixel.g = stof(line.substr(3, line.find(',')));
-  pixel.b = stof(line.substr(4, line.find(',')));
+  line = line.substr(1, line.find(','));
+
+  pixel.y = stoi(line.substr(0, line.find(',')));
+  line = line.substr(1, line.find(','));
+
+  pixel.r = stof(line.substr(0, line.find(',')));
+  line = line.substr(1, line.find(','));
+
+  pixel.g = stof(line.substr(0, line.find(',')));
+  line = line.substr(1, line.find(','));
+
+  pixel.b = stof(line.substr(0, line.find(',')));
+  line = line.substr(1, line.find(','));
 
   return pixel;
 }
