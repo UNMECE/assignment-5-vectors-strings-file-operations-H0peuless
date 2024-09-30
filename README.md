@@ -1,5 +1,5 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/QhG80R_K)
-# ECE_Assignment5
+# ECE_Assignment5 Maxime Prevost
 Working with Vectors, String functions, and File operations
 # Lab Assignment 5
 C++ program where we will use the string, vector, and fstream classes to read/write files and store data.
@@ -59,3 +59,9 @@ Push your main.cpp, pixel.h, and flipped.dat file to the repository.
 - 20% two functions created that operate properly
 - 20% output of data to a file called flipped.dat
 - 20% code produces expected output
+---
+## Compilation command
+
+```
+ g++ -std=c++11 main.cpp -o main
+```
