@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 struct _pixel
 {
   float r;
